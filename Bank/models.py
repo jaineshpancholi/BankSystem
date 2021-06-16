@@ -9,11 +9,13 @@ class user(models.Model):
     def __str__(self):
         return self.Name
 
-class History(models.Model):
+class TransactionHistory(models.Model):
     SenderName = models.CharField(max_length=100, null=True)
     ReceiverName = models.CharField(max_length=100, null=True)
     Amount = models.IntegerField(null=True)
     Date = models.DateField(null=True)
 
     def __str__(self):
-        return self.SenderName + " - " + self.ReceiverName 
+        return self.SenderName + " - " + self.ReceiverName
+
+    

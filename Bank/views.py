@@ -1,4 +1,3 @@
-from django.core.checks.messages import ERROR
 from django.db.models.fields import DateTimeField
 from django.shortcuts import render, redirect
 from Bank.models import *
@@ -23,7 +22,6 @@ def MakeTransaction(request):
 def TransferTo(request, uid):
     error = False
     users = user.objects.get(id = uid)
-
     allusers = user.objects.filter()
     
     # notone = alluser.objects.filter(Name = users.Name)[0]
@@ -50,15 +48,16 @@ def TransferTo(request, uid):
             receiver.Balance += (int(amount))
             receiver.save()
             
-            History.objects.create(SenderName = sender, ReceiverName = receiver, Amount = amount, Date = tdate)
-        return redirect("mtransaction")
+            TransactionHistory.objects.create(SenderName = sender, ReceiverName = receiver, Amount = amount, Date = tdate)
+            return redirect("mtransaction")
 
     d = {"users":users, "allusers":allusers, "error":error}
     return render(request, 'TransferTo.html', d)
 
 
 def history(request):
-    history = History.objects.all()
+    history = TransactionHistory.objects.filter()
     
     d = {"history":history}
     return render(request, 'History.html', d)
+

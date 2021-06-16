@@ -3,4 +3,4 @@ from Bank.models import *
 
 # Register your models here.
 admin.site.register(user)
-admin.site.register(History)
+admin.site.register(TransactionHistory)
