@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'xmc1j(zx29bz72l^_zyn0^b)q)al*wp#s4nk2j#^uett0k^tcp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'banksystem7.herokuapp.com']
 
