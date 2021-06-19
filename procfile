@@ -1,1 +1,1 @@
-web: gunicorn TheBank.wsgi 
+web: gunicorn BankSystem.wsgi 
